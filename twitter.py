@@ -17,9 +17,9 @@ class tweetcommander(object):
         self.timeline = []
         self.page = 0
         self.count = None
-        self.command_re = re.compile('(\/?[a-z]+)\s?([A-Za-z0-9\s]+)*\s?')
+        self.command_re = re.compile('(\/?[a-z]+)\s?([\w\s\W]+)*\s?')
 
-
+# A-Za-z0-9
     def welcome(self):
         print '+----------------------------------------------+'
         print ''
@@ -69,7 +69,6 @@ class tweetcommander(object):
 
     def home_timeline(self, count):
         url = 'https://api.twitter.com/1.1/statuses/home_timeline.json'
-        print count
         url_params = {
             'count': count,
             'since_id': self.since_id,
@@ -160,11 +159,11 @@ class tweetcommander(object):
     def commands(self, action):
         command = self.command_re.search(action)
         
-        if command.group(1) == 'tl':
+        if command.group(1) == '/tl':
             self.home_timeline(command.group(2))
         elif command == 'utl':
             pass
-        elif command.group(1) == 'tw':
+        elif command.group(1) == '/tw':
             self.post_tweets(command.group(2))
         elif command == 'rt':
             pass
