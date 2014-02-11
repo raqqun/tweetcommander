@@ -12,10 +12,7 @@ Features
 
 - View and update home timeline
 - View who's tweeting and from who's retweet
-- View your timeline and the timeline of a specific user
 - Send tweets
-- Make retweets
-- Favorite a tweet
 - Revoke access to your account
 
 
@@ -29,7 +26,7 @@ TODO
 
 
 - fix issues with json parsing and tweets pages
-- add support for directs messages
+- add support for directs messages, retweets, favorites
 
 Examples
 ========
@@ -65,22 +62,9 @@ Examples
 	1 7 @NikSfikas
 	όταν σας πήγαν εκεί που σας πήγαν, εσένα και τον γείτονα, 
 	πλακωνόσαστε και έριχνε την ευθύνη ο ένας στον άλλον
-	
-	
-	# to fetch tweet from a specific user
-	# you can also omit the number and fetch directly the 20 last tweet
-	> utl
-	Who's timeline you want to see ? > raqqun
-	How many tweets you want to see ? > 30 
 
 	# to post a tweet to your timeline 
 	> tw "your fancy tweet"
-
-	# to make a retweet
-	> rt 1 6
-	
-	# to favorite a tweet
-	> fv 1 1
 	
 	# quit TweeтCoммander
 	> /q
