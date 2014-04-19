@@ -10,8 +10,8 @@ from packages.requests_oauthlib import OAuth1
 
 # these are the client key and secret needed 
 # for oauth authentication with the twitter api
-client_key = "66sIdXgLMzUlO7DHG3e7A"
-client_secret = "bCkGtHVC1sOJC13HUJqESc5GlJl2McbtokG3R7gXIw"
+client_key = "moNHqPmAoEvS21mpajk6lNXl3"
+client_secret = "WXQHh9tykUivPFiVGQlwXhjOqR1S3y6W6z8LojSRCuw3vwYUeT"
 
 
 # these are the user credentials for oauth authentication
@@ -27,9 +27,9 @@ def get_token(client_key, client_secret, user_token, user_secret):
     url = 'https://api.twitter.com/oauth/request_token'
 
     token_requests = requests.post(url, auth=oauth)
-
+    print token_requests
     credentials = parse_qs(token_requests.content)
-
+    
     user_token = credentials.get('oauth_token')[0]
 
     user_secret = credentials.get('oauth_token_secret')[0]

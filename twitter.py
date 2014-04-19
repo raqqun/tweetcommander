@@ -103,11 +103,12 @@ class tweetcommander(object):
         requests.post(url, auth=credentials, params=tweet)
 
 
-    def retweet(self, *args):
-        index = len(self.timeline[int(args[0][0])-1])
+    def retweet(self, retweet):
+
+        index = len(self.timeline[int(retweet[0])-1])
 
         url = ('https://api.twitter.com/1.1/statuses/retweet/' +
-               self.timeline[int(args[0][0])-1][index-int(args[0][1])]['id_str'] + '.json'
+               self.timeline[int(retweet[0])-1][index-int(retweet[2:])]['id_str'] + '.json'
         )
 
         credentials = oauth.connection()
@@ -158,15 +159,15 @@ class tweetcommander(object):
 
     def commands(self, action):
         command = self.command_re.search(action)
-        
+
         if command.group(1) == '/tl':
             self.home_timeline(command.group(2))
         elif command == 'utl':
             pass
         elif command.group(1) == '/tw':
             self.post_tweets(command.group(2))
-        elif command == 'rt':
-            pass
+        elif command.group(1) == '/rt':
+            self.retweet(command.group(2))
         elif command == 'dm':
             pass
         elif command == 'fv':

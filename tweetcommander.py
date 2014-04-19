@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import os
+import readline
 import twitter
 
 from user_credentials_dbm import db_path
