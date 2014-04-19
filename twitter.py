@@ -19,13 +19,13 @@ class tweetcommander(object):
         self.count = None
         self.command_re = re.compile('(\/?[a-z]+)\s?([\w\s\W]+)*\s?')
 
-# A-Za-z0-9
+
     def welcome(self):
         print '+----------------------------------------------+'
         print ''
         print ' .•°¤*(¯`★´¯)*¤° TweeтCoммander °¤*(¯´★`¯)*¤°•.'
         print ''
-        print '> type /h for a list fo commands.'
+        print '> type /h for a list of commands.'
         print '+----------------------------------------------+'
 
 
@@ -137,11 +137,11 @@ class tweetcommander(object):
         print '+------------------------------------------------------------+'
         print 'TweeтCoммander actions :'
         print ''
-        print '> tl: get your last timeline'
-        print '> tw: post a tweet ex. tw Hello, World!!!'
-        print '> rt: retweet the number of a tweet from timeline page ex. rt 1 5'
-        print '> utl: get the timeline of twitter user ex. utl > raqqun (user) > 20 (tweets)'
-        print '> fv: favorite a tweet from timeline page ex. fv 1 5'
+        print '> /tl: get your last timeline'
+        print '> /tw: post a tweet ex. tw Hello, World!!!'
+        print '> /rt: retweet the number of a tweet from timeline page ex. rt 1 5'
+        print '> /utl: get the timeline of twitter user ex. utl > raqqun (user) > 20 (tweets)'
+        print '> /fv: favorite a tweet from timeline page ex. fv 1 5'
         print '> /h: open the help commands list'
         print '> /q: quit tweetcommander'
         print '> /rv: revoke access to your account by deleting your credentials from your computer'
@@ -166,11 +166,11 @@ class tweetcommander(object):
             pass
         elif command.group(1) == '/tw':
             self.post_tweets(command.group(2))
-        elif command.group(1) == '/rt':
+        elif command.group(1) == '/rt' and command.group(2) != None:
             self.retweet(command.group(2))
-        elif command == 'dm':
+        elif command.group(1) == '/dm':
             pass
-        elif command == 'fv':
+        elif command.group(1) == '/fv':
             pass
         elif command.group(1) == '/h':
             self.help()
